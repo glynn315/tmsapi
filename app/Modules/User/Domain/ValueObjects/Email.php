@@ -1,17 +1,17 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Modules\User\Domain\ValueObjects;
 
 use InvalidArgumentException;
 
-final class {{ class }}
+final class Email
 {
     private string $value;
 
     public function __construct(string $value)
     {
         if (empty($value)) {
-            throw new InvalidArgumentException('{{ class }} cannot be empty.');
+            throw new InvalidArgumentException('Email cannot be empty.');
         }
 
         $this->value = $value;

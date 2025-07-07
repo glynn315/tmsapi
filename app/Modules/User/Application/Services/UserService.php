@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Common\Application\Services;
+namespace App\Modules\User\Application\Services;
 
-class Sample
+class UserService
 {
     public function __construct()
     {

@@ -13,7 +13,7 @@ class MakeEntity extends Command
     {
         $name = $this->argument('name');
         $domain = $this->option('domain') ?? 'Common';
-        $folder = base_path("app/{$domain}/Domain/Entities");
+        $folder = base_path("app/Modules/{$domain}/Domain/Entities");
 
         if (!File::exists($folder)) {
             File::makeDirectory($folder, 0755, true);
@@ -29,7 +29,7 @@ class MakeEntity extends Command
         $template = <<<PHP
 <?php
 
-namespace App\\{$domain}\\Domain\\Entities;
+namespace App\\Modules\\{$domain}\\Domain\\Entities;
 
 class {$name}
 {

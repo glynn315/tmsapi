@@ -13,7 +13,7 @@ class MakeService extends Command
     {
         $name = $this->argument('name');
         $domain = $this->option('domain') ?? 'Common';
-        $folder = base_path("app/{$domain}/Application/Services");
+        $folder = base_path("app/Modules/{$domain}/Application/Services");
 
         if (!File::exists($folder)) {
             File::makeDirectory($folder, 0755, true);
@@ -29,7 +29,7 @@ class MakeService extends Command
         $template = <<<PHP
 <?php
 
-namespace App\\{$domain}\\Application\\Services;
+namespace App\\Modules\\{$domain}\\Application\\Services;
 
 class {$name}
 {

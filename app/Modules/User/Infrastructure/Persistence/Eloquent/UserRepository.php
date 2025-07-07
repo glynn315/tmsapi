@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Common\Infrastructure\Persistence\Eloquent;
+namespace App\Modules\User\Infrastructure\Persistence\Eloquent;
 
-class Sample
+class UserRepository
 {
     public function __construct()
     {

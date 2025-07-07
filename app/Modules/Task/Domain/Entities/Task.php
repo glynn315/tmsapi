@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Common\Domain\Entities;
+namespace App\Modules\Task\Domain\Entities;
 
-class Sample
+class Task
 {
     public function __construct()
     {

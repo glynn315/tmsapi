@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
@@ -14,9 +15,16 @@ class MakeValueObject extends GeneratorCommand
         return base_path('stubs/value-object.stub');
     }
 
-    protected function getDefaultNamespace($domain): string
+    protected function getDefaultNamespace($rootNamespace): string
     {
-        // Optional: customize for domain-specific folder structure
-        return "app\\{$domain}\\Domain\\ValueObjects";
+        $module = $this->option('domain') ?? 'Shared';
+        return "App\\Modules\\{$module}\\Domain\\ValueObjects";
+    }
+
+    protected function getOptions()
+    {
+        return [
+            ['domain', null, \Symfony\Component\Console\Input\InputOption::VALUE_REQUIRED, 'The domain/module this value object belongs to.'],
+        ];
     }
 }

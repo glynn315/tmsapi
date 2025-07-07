@@ -13,7 +13,7 @@ class MakeRepository extends Command
     {
         $name = $this->argument('name');
         $domain = $this->option('domain') ?? 'Common';
-        $folder = base_path("app/{$domain}/Infrastructure/Persistence/Eloquent");
+        $folder = base_path("app/Modules/{$domain}/Infrastructure/Persistence/Eloquent");
 
         if (!File::exists($folder)) {
             File::makeDirectory($folder, 0755, true);
@@ -29,7 +29,7 @@ class MakeRepository extends Command
         $template = <<<PHP
 <?php
 
-namespace App\\{$domain}\\Infrastructure\\Persistence\\Eloquent;
+namespace App\\Modules\\{$domain}\\Infrastructure\\Persistence\\Eloquent;
 
 class {$name}
 {
