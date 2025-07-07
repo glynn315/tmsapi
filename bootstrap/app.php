@@ -1,5 +1,6 @@
 <?php
 
+use App\Console\Commands\MakeDomainModel;
 use App\Console\Commands\MakeEntity;
 use App\Console\Commands\MakeRepository;
 use App\Console\Commands\MakeService;
@@ -20,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withCommands([
+        MakeDomainModel::class,
         MakeEntity::class,
         MakeService::class,
         MakeRepository::class,

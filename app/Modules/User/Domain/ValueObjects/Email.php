@@ -6,15 +6,11 @@ use InvalidArgumentException;
 
 final class Email
 {
-    private string $value;
-
-    public function __construct(string $value)
+    public function __construct(private string $value)
     {
-        if (empty($value)) {
-            throw new InvalidArgumentException('Email cannot be empty.');
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            throw new InvalidArgumentException("Invalid email address.");
         }
-
-        $this->value = $value;
     }
 
     public function value(): string
