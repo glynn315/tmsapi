@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Modules\Project\Infrastructure\Persistence\Eloquent;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+class ProjectModel extends Model
+{
+    protected $table = '{{ table }}';
+
+    protected $primaryKey = '{{ primaryKey }}';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        // add your fillables here
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            // if (empty($model->{{ primaryKey }})) {
+            //     $model->{{ primaryKey }} = (string) Str::uuid();
+            // }
+        });
+    }
+}
