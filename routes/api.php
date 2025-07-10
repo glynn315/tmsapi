@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\Task\Interfaces\Http\Controller\CommentController;
 use App\Modules\Task\Interfaces\Http\Controller\TaskController;
 use App\Modules\User\Interfaces\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -24,4 +25,11 @@ Route::prefix('task')->group(function () {
     Route::post('/', [TaskController::class, 'createTask']);
     Route::get('/{id}', [TaskController::class, 'show']);
     Route::put('/{id}', [TaskController::class, 'updateTask']);
+});
+
+Route::prefix('comments')->group(function () {
+    Route::get('/', [CommentController::class, 'index']);
+    Route::post('/', [CommentController::class, 'createComment']);
+    Route::get('/{id}', [CommentController::class, 'showComments']);
+    Route::put('/{id}', [CommentController::class, 'updateComments']);
 });
