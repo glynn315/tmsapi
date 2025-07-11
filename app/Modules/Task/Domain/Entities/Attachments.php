@@ -4,8 +4,11 @@ namespace App\Modules\Task\Domain\Entities;
 
 class Attachments
 {
-    public function __construct()
+    public function __construct(
+        public string $details_attachment,
+        public string $details_status,
+        public string $task_id,
+    )
     {
-        // Initialize entity values here
     }
 }

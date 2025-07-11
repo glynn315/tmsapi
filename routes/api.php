@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\Task\Interfaces\Http\Controller\AttachmentController;
 use App\Modules\Task\Interfaces\Http\Controller\CommentController;
 use App\Modules\Task\Interfaces\Http\Controller\TaskController;
 use App\Modules\User\Interfaces\Http\Controllers\UserController;
@@ -32,4 +33,11 @@ Route::prefix('comments')->group(function () {
     Route::post('/', [CommentController::class, 'createComment']);
     Route::get('/{id}', [CommentController::class, 'showComments']);
     Route::put('/{id}', [CommentController::class, 'updateComments']);
+});
+
+Route::prefix('attachments')->group(function () {
+    Route::get('/', [AttachmentController::class, 'index']);
+    Route::post('/', [AttachmentController::class, 'createAttachments']);
+    Route::get('/{id}', [AttachmentController::class, 'showAttachments']);
+    Route::put('/{id}', [AttachmentController::class, 'updateAttachments']);
 });
